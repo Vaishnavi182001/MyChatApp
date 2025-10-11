@@ -1,0 +1,10 @@
+TOKENSERVICE
+
+The error ReferenceError: localStorage is not defined occurs because localStorage is not available in server-side rendering (SSR) environments, such as Angular Universal. When running on the server, localStorage is not defined because it is a browser-specific API.
+
+To fix this issue, you need to ensure that localStorage is only accessed in the browser environment. Here's how you can handle this:
+
+Solution: Check for Browser Environment
+Update your TokenService to check if the code is running in the browser before accessing localStorage.
+
+Updated TokenService

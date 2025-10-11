@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+
+const ImageCtrl = require('../controllers/image');
+const AuthHelper = require('../Helpers/AuthHelper');
+
+router.post('/upload-image', AuthHelper.VerifyToken, ImageCtrl.UploadImage);
+
+
+module.exports = router;

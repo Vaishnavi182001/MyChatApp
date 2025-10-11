@@ -1,0 +1,35 @@
+<ul class="collection col s12 m12 l10 " *ngFor="let post of topPosts">
+    <li class="collection-item avatar">
+      <!-- <img src="http://placehold.it/50X50" alt="" class="circle"> -->
+      <span class="title">{{post.username}}</span>
+      <p class="time">{{TimeFromNow(post.created)}}
+         <!-- Country -->
+      </p>
+
+    </li>
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <!-- <div class="card-image">
+                    <img class="postImage" src="https://static.scientificamerican.com/dam/m/63580c9277ce5cdb/original/full_moon_rising_over_salish_sea.jpg?m=1729193952.743&crop=4%3A3%2Csmart&w=1200">
+                </div> -->
+                <div class="card-content">
+                    <p>{{post?.post}}</p>
+                </div>
+                <div class="card-action">
+                    <!-- if username is not found in array we add in notliked else in liked class -->
+                    <i (click)="LikePost(post)" [ngClass]="(!CheckInLikesArray(post.likesCount,user.username))? 'notLiked': 'liked'" class="material-icons">favorite</i>
+                    <span class="iconSpan">
+                        {{post?.totalLikes}}
+                    </span>
+                    <span (click)="OpenCommentBox(post)">
+                        <i class="material-icons" [ngClass]="(!CheckInLikesArray(post.comments,user.username))? 'notLiked': 'liked'">chat</i>
+                        <span class="iconSpan">
+                        {{post.comments.length}}
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </ul>
